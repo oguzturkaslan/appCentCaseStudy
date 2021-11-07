@@ -14,11 +14,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class ToDoListManager implements ToDoListService {
 
-    @Autowired
     private UserDao userDao;
+    private ToDoListDao toDoListDao;
 
     @Autowired
-    private ToDoListDao toDoListDao;
+    public ToDoListManager(UserDao userDao, ToDoListDao toDoListDao) {
+        this.userDao = userDao;
+        this.toDoListDao = toDoListDao;
+    }
 
     @Override
     public Result createTask(ToDoList toDoList) {
