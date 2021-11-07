@@ -1,16 +1,13 @@
 package com.appcentcasestudy.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "todolists")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,10 +21,10 @@ public class ToDoList {
     @NotNull
     private String description;
 
-    @Column(name = "is_done")
+    @Column(name = "is_done",columnDefinition = "boolean default false")
     private boolean isDone;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "user_id")
     private User user;
 

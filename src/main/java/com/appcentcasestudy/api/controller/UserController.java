@@ -3,7 +3,6 @@ package com.appcentcasestudy.api.controller;
 import com.appcentcasestudy.business.abstracts.UserService;
 import com.appcentcasestudy.core.dtos.UserUpdateDto;
 import com.appcentcasestudy.core.utilities.results.Result;
-import com.appcentcasestudy.core.utilities.results.SuccessResult;
 import com.appcentcasestudy.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,8 +32,8 @@ public class UserController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateUser(@Valid @PathVariable("id") Long id, @RequestBody UserUpdateDto taskUpdateDto) {
-        final Result result = userService.updateUser(id, taskUpdateDto);
+    public ResponseEntity<?> updateUser(@Valid @PathVariable("id") Long id, @RequestBody UserUpdateDto userUpdateDto) {
+        final Result result = userService.updateUser(id, userUpdateDto);
         return ResponseEntity.ok(result);
     }
 
