@@ -1,3 +1,4 @@
 FROM openjdk:8-jdk-alpine
-COPY out/artifacts/appCentCaseStudy_jar/appCentCaseStudy.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+EXPOSE 8080
+ADD target/appCentCaseStudy.jar appCentCaseStudy.jar
+ENTRYPOINT ["java","-jar","appCentCaseStudy.jar"]
